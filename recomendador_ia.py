@@ -7,7 +7,7 @@ def generar_recomendacion(df, api_key):
 {productos}
 ¿Qué me recomendás comprar para revender con buen margen?"
 
-    openai.api_key = api_key
+    openai.api_key = os.getenv("OPENAI_API_KEY")
     try:
         respuesta = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
