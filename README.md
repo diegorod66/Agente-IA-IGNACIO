@@ -1,9 +1,10 @@
-# Agente IGNACIO v2
+# Agente IGNACIO v3
 
-Asistente IA con scraping simulado, almacenamiento en SQLite, gráficos de precios y análisis con ChatGPT.
+Versión unificada con scraping real de Mercado Libre, IA con OpenAI, visualización de precios y almacenamiento en SQLite.
 
-## Configuración
+## Cómo usar
 
-Agregá este secreto en Streamlit Cloud:
-
+1. Subí los archivos a tu repositorio en GitHub.
+2. Desplegá en Streamlit Cloud.
+3. En Settings > Secrets, agregá:
 OPENAI_API_KEY = "sk-proj-xxxxx..."

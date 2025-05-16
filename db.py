@@ -9,9 +9,8 @@ def crear_tabla_si_no_existe():
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS productos (
             Producto TEXT,
-            Precio REAL,
-            Vendidos INTEGER,
-            Marca TEXT,
+            Precio TEXT,
+            Vendidos TEXT,
             Link TEXT,
             Fecha TEXT,
             Categoría TEXT
@@ -20,7 +19,7 @@ def crear_tabla_si_no_existe():
     conn.commit()
     conn.close()
 
-def guardar_en_db(df, categoria):
+def guardar_en_db(df):
     conn = sqlite3.connect(DB)
     df.to_sql("productos", conn, if_exists="append", index=False)
     conn.close()
