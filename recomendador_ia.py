@@ -1,16 +1,16 @@
-import openai
 import os
+from openai import OpenAI
+
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def generar_recomendacion(df):
     productos = df.head(5).to_dict(orient='records')
-    prompt = f"Analizá estos productos para reventa:\n{productos}\n¿Qué me recomendás comprar para revender con buen margen?"
-
-    openai.api_key = os.getenv("OPENAI_API_KEY")
+    prompt = f"Analizá estos productos:\n{productos}\n¿Qué me recomendás revender con buen margen?"
     try:
-        respuesta = openai.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[{"role": "user", "content": prompt}]
         )
-        return respuesta.choices[0].message.content
+        return response.choices[0].message.content
     except Exception as e:
         return f"Error al consultar la IA: {str(e)}"

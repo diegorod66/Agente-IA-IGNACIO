@@ -1,15 +1,9 @@
-# Agente IGNACIO
+# Agente IGNACIO v2
 
-Asistente IA para análisis de productos más vendidos y recomendaciones de reventa en Mercado Libre Argentina.
+Asistente IA con scraping simulado, almacenamiento en SQLite, gráficos de precios y análisis con ChatGPT.
 
-## Cómo usar
+## Configuración
 
-1. Ingresá una categoría (ej: tecnología).
-2. El agente mostrará productos simulados (próximamente scraping real).
-3. Se generará una sugerencia usando OpenAI (ChatGPT).
-4. Podés exportar los resultados a Excel.
+Agregá este secreto en Streamlit Cloud:
 
-## Variables necesarias
-
-En `Secrets` de Streamlit Cloud:
 OPENAI_API_KEY = "sk-proj-xxxxx..."
