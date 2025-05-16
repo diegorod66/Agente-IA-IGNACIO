@@ -1,11 +1,9 @@
-
 import openai
+import os
 
-def generar_recomendacion(df, api_key):
+def generar_recomendacion(df):
     productos = df.head(5).to_dict(orient='records')
-    prompt = f"Analizá estos productos para reventa:
-{productos}
-¿Qué me recomendás comprar para revender con buen margen?"
+    prompt = f"Analizá estos productos para reventa:\n{productos}\n¿Qué me recomendás comprar para revender con buen margen?"
 
     openai.api_key = os.getenv("OPENAI_API_KEY")
     try:

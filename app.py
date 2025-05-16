@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 from scraper import obtener_productos
@@ -19,9 +18,7 @@ if st.button("Analizar"):
         csv = df.to_csv(index=False).encode('utf-8')
         st.download_button("📥 Descargar Excel", csv, "productos.csv", "text/csv")
 
-        # Clave OpenAI
+        # Recomendación automática usando OpenAI
         st.subheader("💡 Recomendación del Agente IA")
-        api_key = st.text_input("🔑 Ingresá tu clave OpenAI (no se guarda)", type="password")
-        if api_key:
-            respuesta = generar_recomendacion(df, api_key)
-            st.info(respuesta)
+        respuesta = generar_recomendacion(df)
+        st.info(respuesta)

@@ -1,4 +1,3 @@
-
 import pandas as pd
 
 def obtener_productos(categoria):
