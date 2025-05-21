@@ -1,6 +1,5 @@
 streamlit
+openai
 pandas
-requests
-beautifulsoup4
 plotly
-openai>=1.0.0
+sqlite3
