@@ -1,5 +1,5 @@
 streamlit
-openai
 pandas
+openai
 plotly
-sqlite3
+requests
