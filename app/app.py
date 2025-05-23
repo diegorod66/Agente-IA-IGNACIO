@@ -1,6 +1,6 @@
-
-# Versión: app.py v3.4.2
-# Fecha: 2025-05-22
+# Versión: app.py v3.4.3
+# Fecha: 2025-05-23
+# Descripción: Fix de requirements.txt para eliminar dependencia inválida (sqlite3)
 # Descripción: Manejo seguro de renderización con contenedores para evitar errores visuales (fix v3.4.2)
 
 import streamlit as st
