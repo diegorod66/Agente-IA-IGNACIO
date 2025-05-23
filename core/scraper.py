@@ -1,12 +1,11 @@
-# Versión: scraper.py v3.5.1
-# Fecha: 2025-05-24
-# Descripción: Scraping robusto para ML Argentina, tolera tildes y usa rutas alternativas
+# core/scraper.py v3.5.2 — con logging Streamlit para depuración
 
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import time
 import unicodedata
+import streamlit as st
 
 def normalizar_termino(termino):
     nfkd = unicodedata.normalize('NFKD', termino)
@@ -16,20 +15,21 @@ def normalizar_termino(termino):
 def obtener_productos(termino: str, cantidad: int = 20):
     productos = []
     url_base = "https://listado.mercadolibre.com.ar/"
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
-    }
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
     term_norm = normalizar_termino(termino)
 
     # 1er intento: URL tradicional
     for offset in range(0, cantidad, 48):
         url = f"{url_base}{term_norm}_Desde_{offset+1}_NoIndex_True"
+        st.write(f"Intentando URL: {url}")
         response = requests.get(url, headers=headers)
+        st.write(f"Status code: {response.status_code}")
         if response.status_code != 200:
             break
 
         soup = BeautifulSoup(response.text, "html.parser")
         items = soup.select("li.ui-search-layout__item")
+        st.write(f"Productos encontrados en esta página: {len(items)}")
         for item in items:
             if len(productos) >= cantidad:
                 break
@@ -46,7 +46,8 @@ def obtener_productos(termino: str, cantidad: int = 20):
                     "Marca": marca.get_text(strip=True) if marca else "No informado",
                     "Link": link
                 })
-            except Exception:
+            except Exception as e:
+                st.write(f"Error al parsear item: {e}")
                 continue
         if productos:
             break
@@ -55,10 +56,13 @@ def obtener_productos(termino: str, cantidad: int = 20):
     # 2do intento: búsqueda general
     if not productos:
         url2 = f"https://www.mercadolibre.com.ar/jm/search?as_word={termino.replace(' ', '+')}"
+        st.write(f"Intentando URL alternativa: {url2}")
         response = requests.get(url2, headers=headers)
+        st.write(f"Status code alternativa: {response.status_code}")
         if response.status_code == 200:
             soup = BeautifulSoup(response.text, "html.parser")
             items = soup.select("li.ui-search-layout__item")
+            st.write(f"Productos encontrados en alternativa: {len(items)}")
             for item in items:
                 if len(productos) >= cantidad:
                     break
@@ -75,8 +79,9 @@ def obtener_productos(termino: str, cantidad: int = 20):
                         "Marca": marca.get_text(strip=True) if marca else "No informado",
                         "Link": link
                     })
-                except Exception:
+                except Exception as e:
+                    st.write(f"Error al parsear item alternativa: {e}")
                     continue
             time.sleep(1.2)
-
+    st.write(f"Total productos obtenidos: {len(productos)}")
     return pd.DataFrame(productos)
