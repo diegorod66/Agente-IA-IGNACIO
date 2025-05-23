@@ -1,23 +1,22 @@
-
-# Versión: scraper.py v3.4.1
-# Fecha: 2025-05-22
-# Descripción: Scraping real desde Mercado Libre con categoría y cantidad configurables (v3.4.1)
+# Versión: scraper.py v3.5.0
+# Fecha: 2025-05-24
+# Descripción: Scraping real desde Mercado Libre Argentina usando búsqueda abierta por cualquier término
 
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import time
 
-def obtener_productos(categoria: str, cantidad: int = 20):
+def obtener_productos(termino: str, cantidad: int = 20):
     productos = []
     url_base = "https://listado.mercadolibre.com.ar/"
-    categoria = categoria.replace(" ", "-")
+    termino_busqueda = termino.replace(" ", "-")
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
     }
 
     for offset in range(0, cantidad, 48):
-        url = f"{url_base}{categoria}_Desde_{offset + 1}_NoIndex_True"
+        url = f"{url_base}{termino_busqueda}_Desde_{offset+1}_NoIndex_True"
         response = requests.get(url, headers=headers)
 
         if response.status_code != 200:
@@ -46,6 +45,6 @@ def obtener_productos(categoria: str, cantidad: int = 20):
             except Exception:
                 continue
 
-        time.sleep(1.5)
+        time.sleep(1.5)  # Delay para evitar bloqueos
 
     return pd.DataFrame(productos)

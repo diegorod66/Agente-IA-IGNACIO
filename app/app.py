@@ -1,6 +1,6 @@
-# Versión: app.py v3.4.4
-# Fecha: 2025-05-23
-# Descripción: Fix de importación de módulos con sys.path para ejecución desde subcarpeta
+# Versión: app.py v3.5.0
+# Fecha: 2025-05-24
+# Descripción: App con scraping universal por término, gráfica, IA y exportación Excel
 
 import sys
 import os
@@ -15,19 +15,19 @@ from utils.helpers import formatear_precios
 import pandas as pd
 
 st.set_page_config(page_title="Agente IGNACIO", layout="wide")
-st.title("Agente IGNACIO v3.4.4")
+st.title("Agente IGNACIO v3.5.0")
 
-categoria = st.text_input("🔍 Ingresá la categoría de productos", value="tecnología")
+termino = st.text_input("🔍 Ingresá el término de búsqueda", value="tecnología")
 cantidad = st.number_input("📦 Cantidad de productos a obtener", min_value=1, max_value=200, value=20)
 
 if st.button("Analizar productos"):
     with st.spinner("Obteniendo resultados desde Mercado Libre..."):
-        df = obtener_productos(categoria, cantidad)
+        df = obtener_productos(termino, cantidad)
         if df.empty:
-            st.warning("No se encontraron productos. Verificá la categoría ingresada.")
+            st.warning("No se encontraron productos. Verificá el término ingresado.")
         else:
             df = formatear_precios(df)
-            guardar_busqueda(categoria, df)
+            guardar_busqueda(termino, df)
 
             with st.container():
                 st.subheader("📋 Resultados del scraping")
@@ -45,4 +45,4 @@ if st.button("Analizar productos"):
 
             with st.container():
                 st.subheader("📈 Comparación con búsquedas anteriores")
-                st.write(obtener_comparacion(categoria, df))
+                st.write(obtener_comparacion(termino, df))

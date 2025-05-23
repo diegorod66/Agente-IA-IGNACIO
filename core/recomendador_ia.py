@@ -1,13 +1,12 @@
-# Versión: recomendador_ia.py v3.4.1
-# Fecha: 2025-05-22
+# Versión: recomendador_ia.py v3.5.0
+# Fecha: 2025-05-24
 # Descripción: Motor GPT-4 para generar recomendaciones automáticas a partir de productos
 
 import os
 from openai import OpenAI
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
 def generar_recomendacion(df):
+    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     productos = df.head(5).to_dict(orient='records')
     prompt = f"Actuá como un asesor de negocios. Analizá estos productos:\n{productos}\n¿Qué me recomendás revender por rentabilidad y demanda?"
     try:

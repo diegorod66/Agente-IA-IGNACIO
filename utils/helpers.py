@@ -1,5 +1,5 @@
-# Versión: helpers.py v3.4.1
-# Fecha: 2025-05-22
+# Versión: helpers.py v3.5.0
+# Fecha: 2025-05-24
 # Descripción: Formateo de precios para scraping de ML
 
 def formatear_precios(df):

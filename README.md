@@ -1,7 +1,7 @@
 # Agente IGNACIO
 
-**Versión actual:** `v3.4.4`  
-**Descripción:** Asistente IA con scraping real, recomendaciones, exportación y estructura escalable. Esta versión corrige imports desde subcarpetas.
+**Versión actual:** `v3.5.0`  
+**Descripción:** Asistente IA con scraping real universal, recomendación IA, gráfico, tabla y exportación.
 
 ---
 
@@ -18,6 +18,7 @@
 | v3.4.2  | 2025-05-22  | Fix visual con `st.container()` |
 | v3.4.3  | 2025-05-23  | Fix en requirements.txt (sqlite3 eliminado) |
 | v3.4.4  | 2025-05-23  | Fix de importación de módulos (sys.path) |
+| v3.5.0  | 2025-05-24  | Scraping universal por término, todo restaurado |
 
 ---
 
