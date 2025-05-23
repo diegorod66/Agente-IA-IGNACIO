@@ -1,7 +1,7 @@
 
-# Versión: scraper.py v3.4
+# Versión: scraper.py v3.4.1
 # Fecha: 2025-05-22
-# Descripción: Scraping real de Mercado Libre Argentina, configurable por categoría y cantidad de resultados
+# Descripción: Scraping real desde Mercado Libre con categoría y cantidad configurables (v3.4.1)
 
 import requests
 from bs4 import BeautifulSoup
@@ -46,6 +46,6 @@ def obtener_productos(categoria: str, cantidad: int = 20):
             except Exception:
                 continue
 
-        time.sleep(1.5)  # para evitar bloqueos
+        time.sleep(1.5)
 
     return pd.DataFrame(productos)

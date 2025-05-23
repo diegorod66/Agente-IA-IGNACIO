@@ -1,3 +1,6 @@
+# Versión: recomendador_ia.py v3.4.1
+# Fecha: 2025-05-22
+# Descripción: Motor GPT-4 para generar recomendaciones automáticas a partir de productos
 
 import os
 from openai import OpenAI

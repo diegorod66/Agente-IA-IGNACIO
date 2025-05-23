@@ -1,7 +1,7 @@
 
-# Versión: app.py v3.4
+# Versión: app.py v3.4.1
 # Fecha: 2025-05-22
-# Descripción: Integración de scraping real con selección dinámica de categoría y cantidad
+# Descripción: Integración de scraping real + init fix para estructura de paquetes (v3.4.1)
 
 import streamlit as st
 from core.scraper import obtener_productos
@@ -12,7 +12,7 @@ from utils.helpers import formatear_precios
 import pandas as pd
 
 st.set_page_config(page_title="Agente IGNACIO", layout="wide")
-st.title("Agente IGNACIO v3.4")
+st.title("Agente IGNACIO v3.4.1")
 
 categoria = st.text_input("🔍 Ingresá la categoría de productos", value="tecnología")
 cantidad = st.number_input("📦 Cantidad de productos a obtener", min_value=1, max_value=200, value=20)

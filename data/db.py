@@ -1,3 +1,6 @@
+# Versión: db.py v3.4.1
+# Fecha: 2025-05-22
+# Descripción: Módulo de base de datos SQLite para guardar y comparar productos
 
 import sqlite3
 import pandas as pd

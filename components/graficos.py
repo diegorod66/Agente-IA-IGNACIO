@@ -1,3 +1,6 @@
+# Versión: graficos.py v3.4.1
+# Fecha: 2025-05-22
+# Descripción: Visualización de precios con Plotly
 
 import plotly.express as px
 import streamlit as st
