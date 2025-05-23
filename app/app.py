@@ -1,7 +1,10 @@
-# Versión: app.py v3.4.3
+# Versión: app.py v3.4.4
 # Fecha: 2025-05-23
-# Descripción: Fix de requirements.txt para eliminar dependencia inválida (sqlite3)
-# Descripción: Manejo seguro de renderización con contenedores para evitar errores visuales (fix v3.4.2)
+# Descripción: Fix de importación de módulos con sys.path para ejecución desde subcarpeta
+
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import streamlit as st
 from core.scraper import obtener_productos
@@ -12,7 +15,7 @@ from utils.helpers import formatear_precios
 import pandas as pd
 
 st.set_page_config(page_title="Agente IGNACIO", layout="wide")
-st.title("Agente IGNACIO v3.4.2")
+st.title("Agente IGNACIO v3.4.4")
 
 categoria = st.text_input("🔍 Ingresá la categoría de productos", value="tecnología")
 cantidad = st.number_input("📦 Cantidad de productos a obtener", min_value=1, max_value=200, value=20)

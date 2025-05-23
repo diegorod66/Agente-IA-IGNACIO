@@ -1,23 +1,7 @@
+# Agente IGNACIO
 
-**Versión actual:** `v3.4.3`  
-
-**Versión actual:** `v3.4.2`  
-**Descripción:** Asistente IA con scraping real, recomendaciones, exportación y estructura escalable. Esta versión corrige errores visuales de renderización en Streamlit.
-
----
-
-## 📦 Estructura del proyecto
-
-```
-agente_ignacio_v3_4_2/
-├── app/               ← Lógica principal Streamlit
-├── components/        ← Gráficos, tablas, visualización
-├── core/              ← Motor IA + Scraper real
-├── data/              ← Base SQLite
-├── utils/             ← Limpieza y helpers
-├── requirements.txt   ← Dependencias
-├── README.md          ← Este archivo
-```
+**Versión actual:** `v3.4.4`  
+**Descripción:** Asistente IA con scraping real, recomendaciones, exportación y estructura escalable. Esta versión corrige imports desde subcarpetas.
 
 ---
 
@@ -31,29 +15,17 @@ agente_ignacio_v3_4_2/
 | v3.3    | 2025-05-22  | Manejo visual con `st.empty()` |
 | v3.4    | 2025-05-22  | Scraping real, entrada dinámica, exportación |
 | v3.4.1  | 2025-05-22  | Fix de imports y estructura de paquetes |
-| v3.4.3  | 2025-05-23  | Fix: eliminado sqlite3 del requirements.txt para compatibilidad Streamlit Cloud |
-| v3.4.2  | 2025-05-22  | Fix visual: encapsulado seguro con `st.container()` para evitar errores JS |
+| v3.4.2  | 2025-05-22  | Fix visual con `st.container()` |
+| v3.4.3  | 2025-05-23  | Fix en requirements.txt (sqlite3 eliminado) |
+| v3.4.4  | 2025-05-23  | Fix de importación de módulos (sys.path) |
 
 ---
 
-## 🧠 Requisitos
+## 🛠️ Despliegue
 
-- Python 3.10+
-- streamlit, pandas, openai, requests, plotly, beautifulsoup4, sqlite3
-
----
-
-## 🛠️ Despliegue (Streamlit Cloud)
-
-1. Subir todo a GitHub
-2. Crear nueva app en [https://streamlit.io/cloud](https://streamlit.io/cloud)
-3. Archivo principal: `app/app.py`
-4. Secrets:
+1. Archivo principal: `app/app.py`
+2. Repositorio: GitHub (estructura escalable)
+3. Secrets:
 ```
-OPENAI_API_KEY = "sk-proj-..."
+OPENAI_API_KEY = "tu-clave"
 ```
-5. Deploy!
-
----
-
-Desarrollado por Diego R. y asistido por IA
