@@ -1,4 +1,4 @@
-# Versión: db.py v3.5.0
+# Versión: db.py v3.5.1
 # Fecha: 2025-05-24
 # Descripción: Módulo de base de datos SQLite para guardar y comparar productos
 

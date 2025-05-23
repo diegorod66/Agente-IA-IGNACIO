@@ -1,7 +1,7 @@
 # Agente IGNACIO
 
-**Versión actual:** `v3.5.0`  
-**Descripción:** Asistente IA con scraping real universal, recomendación IA, gráfico, tabla y exportación.
+**Versión actual:** `v3.5.1`  
+**Descripción:** Asistente IA con scraping robusto, recomendación IA, gráfico, tabla y exportación.
 
 ---
 
@@ -19,6 +19,7 @@
 | v3.4.3  | 2025-05-23  | Fix en requirements.txt (sqlite3 eliminado) |
 | v3.4.4  | 2025-05-23  | Fix de importación de módulos (sys.path) |
 | v3.5.0  | 2025-05-24  | Scraping universal por término, todo restaurado |
+| v3.5.1  | 2025-05-24  | Scraping robusto para términos y rutas alternativas |
 
 ---
 

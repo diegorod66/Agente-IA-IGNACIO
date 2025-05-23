@@ -1,6 +1,6 @@
-# Versión: app.py v3.5.0
+# Versión: app.py v3.5.1
 # Fecha: 2025-05-24
-# Descripción: App con scraping universal por término, gráfica, IA y exportación Excel
+# Descripción: App con scraping robusto, gráfica, IA y exportación Excel
 
 import sys
 import os
@@ -15,7 +15,7 @@ from utils.helpers import formatear_precios
 import pandas as pd
 
 st.set_page_config(page_title="Agente IGNACIO", layout="wide")
-st.title("Agente IGNACIO v3.5.0")
+st.title("Agente IGNACIO v3.5.1")
 
 termino = st.text_input("🔍 Ingresá el término de búsqueda", value="tecnología")
 cantidad = st.number_input("📦 Cantidad de productos a obtener", min_value=1, max_value=200, value=20)

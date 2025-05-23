@@ -1,4 +1,4 @@
-# Versión: recomendador_ia.py v3.5.0
+# Versión: recomendador_ia.py v3.5.1
 # Fecha: 2025-05-24
 # Descripción: Motor GPT-4 para generar recomendaciones automáticas a partir de productos
 
