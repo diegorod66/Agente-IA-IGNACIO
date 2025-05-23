@@ -1,15 +1,15 @@
 
 # Agente IGNACIO
 
-**Versión actual:** `v3.4.1`  
-**Descripción:** Asistente IA con scraping real, recomendaciones, exportación y análisis de productos más vendidos de Mercado Libre Argentina.
+**Versión actual:** `v3.4.2`  
+**Descripción:** Asistente IA con scraping real, recomendaciones, exportación y estructura escalable. Esta versión corrige errores visuales de renderización en Streamlit.
 
 ---
 
 ## 📦 Estructura del proyecto
 
 ```
-agente_ignacio_v3_4_1/
+agente_ignacio_v3_4_2/
 ├── app/               ← Lógica principal Streamlit
 ├── components/        ← Gráficos, tablas, visualización
 ├── core/              ← Motor IA + Scraper real
@@ -30,7 +30,8 @@ agente_ignacio_v3_4_1/
 | v3.2    | 2024-05     | Comparación de fechas, estructura profesional |
 | v3.3    | 2025-05-22  | Manejo visual con `st.empty()` |
 | v3.4    | 2025-05-22  | Scraping real, entrada dinámica, exportación |
-| v3.4.1  | 2025-05-22  | Corrección de importaciones (`__init__.py`) y estructura de paquetes |
+| v3.4.1  | 2025-05-22  | Fix de imports y estructura de paquetes |
+| v3.4.2  | 2025-05-22  | Fix visual: encapsulado seguro con `st.container()` para evitar errores JS |
 
 ---
 
